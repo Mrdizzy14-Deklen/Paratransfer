@@ -1,0 +1,160 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnf3w2d2vjhag"]
+
+[ext_resource type="Script" uid="uid://beyijdwnnstx7" path="res://start_menu.gd" id="1_jwbto"]
+
+[sub_resource type="Theme" id="Theme_ndybt"]
+default_font_size = 64
+Button/fonts/font = null
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jwbto")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -910.0
+offset_top = -128.0
+offset_right = 910.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ndybt")
+alignment = 1
+
+[node name="Style1" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+text = "Tutorial"
+
+[node name="Style2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+text = "N/A"
+
+[node name="Style3" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+text = "N/A"
+
+[node name="Style4" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+text = "N/A"
+
+[node name="Sens Slider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -66.0
+offset_right = 480.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+min_value = 1.0
+max_value = 3.0
+step = 0.25
+value = 2.0
+tick_count = 9
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -120.0
+offset_right = 79.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Sensitivity"
+
+[node name="FOV Slider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -166.0
+offset_right = 480.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+min_value = 80.0
+step = 5.0
+value = 90.0
+tick_count = 5
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -216.0
+offset_right = 31.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "FOV"
+
+[node name="FOV Display" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 119.0
+offset_top = -216.0
+offset_right = 181.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "90.0"
+
+[node name="Sens Display" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 119.0
+offset_top = -120.0
+offset_right = 181.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "2.0"
+
+[connection signal="pressed" from="HBoxContainer/Style1" to="." method="style_1"]
+[connection signal="pressed" from="HBoxContainer/Style2" to="." method="style_2"]
+[connection signal="pressed" from="HBoxContainer/Style3" to="." method="style_3"]
+[connection signal="pressed" from="HBoxContainer/Style4" to="." method="style_4"]
+[connection signal="value_changed" from="Sens Slider" to="." method="_on_sens_slider_changed"]
+[connection signal="value_changed" from="FOV Slider" to="." method="_on_fov_slider_changed"]

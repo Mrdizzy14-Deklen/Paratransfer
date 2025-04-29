@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch5uoxg4yv16p"]
+
+[ext_resource type="Material" uid="uid://dnyrfe3yoggbg" path="res://Assets/GridBox(10m).tres" id="1_opku5"]
+[ext_resource type="PackedScene" uid="uid://c5hgwo36j7xsb" path="res://character.tscn" id="2_enajw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opku5"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Environment" id="Environment_8pju4"]
+
+[node name="Style2" type="Node3D"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+use_collision = true
+flip_faces = true
+radius = 100.0
+radial_segments = 100
+rings = 100
+material = SubResource("StandardMaterial3D_opku5")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -86, 0)
+operation = 2
+use_collision = true
+size = Vector3(200, 28.0054, 200)
+material = ExtResource("1_opku5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8pju4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 16.0
+omni_range = 200.0
+
+[node name="Character" parent="." instance=ExtResource("2_enajw")]
