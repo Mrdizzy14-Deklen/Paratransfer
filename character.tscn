@@ -1,6 +1,5 @@
 [gd_scene load_steps=19 format=3 uid="uid://c5hgwo36j7xsb"]
 
-[ext_resource type="Script" uid="uid://wxsdud2yutoq" path="res://character.gd" id="1_oolk3"]
 [ext_resource type="Script" uid="uid://dr43vhwhddxud" path="res://StateMachine/state_machine.gd" id="2_pjt0s"]
 [ext_resource type="Script" uid="uid://c8oonsycdaf3o" path="res://StateMachine/States/idle_state.gd" id="3_wa5vi"]
 [ext_resource type="Script" uid="uid://hwmb0h1dit80" path="res://StateMachine/States/run_state.gd" id="4_wfnr8"]
@@ -9,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dqmbw2qetaobi" path="res://StateMachine/States/wallrun_state.gd" id="7_wdpcj"]
 [ext_resource type="Script" uid="uid://dsfduhkanhykt" path="res://StateMachine/States/jump_state.gd" id="7_yxww1"]
 [ext_resource type="PackedScene" uid="uid://dicp1i6bjx46y" path="res://pause_menu.tscn" id="9_qi5as"]
+[ext_resource type="AudioStream" uid="uid://bkxiwcpg73eud" path="res://Assets/jump.wav" id="10_jb3kq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0rwas"]
 
@@ -254,7 +254,6 @@ _data = {
 }
 
 [node name="Character" type="CharacterBody3D"]
-script = ExtResource("1_oolk3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_0rwas")
@@ -266,7 +265,7 @@ mesh = SubResource("CapsuleMesh_glpr6")
 skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.5, 0)
 fov = 100.0
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Camera3D"]
@@ -318,3 +317,6 @@ script = ExtResource("7_yxww1")
 [node name="PauseMenu" parent="." instance=ExtResource("9_qi5as")]
 process_mode = 3
 visible = false
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_jb3kq")

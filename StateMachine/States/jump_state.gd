@@ -3,6 +3,7 @@ extends MovementState
 
 class_name JumpState
 
+@onready var jump_sound: AudioStreamPlayer = $"../../JumpSound"
 
 var start_state
 var jump_buffer = false
@@ -16,6 +17,7 @@ func enter(previous_state):
 	character.jump_available = false
 	if previous_state.name != "JumpState" and previous_state.name != "WallrunState":
 		start_state = previous_state
+	jump_sound.play()
 	
 
 
